@@ -1,0 +1,21 @@
+<h1>舟山河路況</h1>
+
+<div>
+  <% if Zousan.river? %>
+    現在是舟山河
+  <% else %>
+    現在是舟山路
+  <% end %>
+</div>
+
+<div>
+  <%= form_tag '/welcome' do %>
+    <input name="river" type="hidden" value="true">
+    <%= submit_tag 'Update to river' %>
+  <% end %>
+  <%= form_tag '/welcome' do %>
+    <input name="river" type="hidden" value="false">
+    <%= submit_tag 'Update to road' %>
+  <% end %>
+</div>
+
