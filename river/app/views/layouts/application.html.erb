@@ -2,16 +2,41 @@
 <html>
 <head>
   <title>River</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <style>
+body{
+  background-color: #b1b1b1;
+}
+  </style>
+
 </head>
 <body>
+<div class="container-fluid" style="margin-left: 50px; margin-right: 50px; margin-top: 20px;">
+  <nav role="navigation">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active">
+        <%= link_to 'Home', root_path %>
+      </li>
+      <li role="presentation">
+        <%= link_to 'Status', status_path %>
+      </li>
+    </ul>
+  </nav>
 
-<%= link_to 'Home', root_path %> |
-<%= link_to 'Status', status_path %>
-
+  <div class="row">
 <%= yield %>
-
+  </div>
+</div>
 </body>
 </html>

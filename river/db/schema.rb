@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821171523) do
+ActiveRecord::Schema.define(version: 20150822152449) do
+
+  create_table "statuses", force: :cascade do |t|
+    t.boolean  "river"
+    t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "zousans", force: :cascade do |t|
     t.boolean  "river",      default: false

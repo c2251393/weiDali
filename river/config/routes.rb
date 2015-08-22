@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  post 'welcome/update' => 'status#update', as: :river_update
   get 'status' => 'status#index', as: :status
+  post 'status/update' => 'status#update', as: :river_update
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

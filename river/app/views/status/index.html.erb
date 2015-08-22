@@ -1,16 +1,15 @@
 <h1>路況更新</h1>
 
 <div>
-  <%= form_tag '/welcome/update' do %>
-    <input name="river" type="hidden" value="true">
-    <%= submit_tag 'Update to river' %>
-  <% end %>
-</div>
-
-<div>
-  <%= form_tag '/welcome/update' do %>
-    <input name="river" type="hidden" value="false">
-    <%= submit_tag 'Update to road' %>
+  <%= form_tag '/status/update', multipart: true do %>
+    <select name="river">
+      <option value="0" selected="selected">No flood</option>
+      <option value="1">Flood</option>
+    </select>
+    <br>
+    <%= file_field_tag 'picture' %>
+    <br>
+    <%= submit_tag 'Submit', :class => 'btn btn-success' %>
   <% end %>
 </div>
 

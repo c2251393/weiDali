@@ -1,11 +1,20 @@
 <h1>舟山河路況</h1>
 
+<% @statuses.reverse.each do |status| %>
+
 <div>
-  <% if Zousan.river? %>
+  <%= image_tag status.picture.url %>
+</div>
+
+<div>
+  <% if status.river? %>
     <strong>現在是舟山河</strong>
   <% else %>
     <strong>現在是舟山路</strong>
   <% end %>
-  <%= Zousan.me.updated_at %>
+  <%= status.updated_at %>
 </div>
 
+<hr>
+
+<% end %>
