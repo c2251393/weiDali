@@ -1,0 +1,16 @@
+<h1>路況更新</h1>
+
+<div>
+  <%= form_tag '/welcome/update' do %>
+    <input name="river" type="hidden" value="true">
+    <%= submit_tag 'Update to river' %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_tag '/welcome/update' do %>
+    <input name="river" type="hidden" value="false">
+    <%= submit_tag 'Update to road' %>
+  <% end %>
+</div>
+

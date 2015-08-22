@@ -1,13 +1,18 @@
 class Zousan < ActiveRecord::Base
+
+  def self.me
+    Zousan.find(1)
+  end
+
   def self.river?
-    Zousan.find(1).river
+    Zousan.me.river
   end
 
   def self.isRoad!
-    Zousan.find(1).update(river: false)
+    Zousan.me.update(river: false)
   end
 
   def self.isRiver!
-    Zousan.find(1).update(river: true)
+    Zousan.me.update(river: true)
   end
 end
