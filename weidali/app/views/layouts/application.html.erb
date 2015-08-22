@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<%= link_to 'home', root_path %> | 
+<%= link_to 'activities', activities_path %> | 
+<% if user_signed_in? %>
+<%= link_to 'logout', sign_out_path %> |
+<% else %>
+<%= link_to 'login', sign_in_path %> |
+<% end %>
+
+
 <%= yield %>
 
 </body>

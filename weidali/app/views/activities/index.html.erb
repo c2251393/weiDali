@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Activities</h1>
+
+<form method="get" accept-charset="UTF-8">
+  <%= label_tag 'starttime' %>
+  <%= datetime_local_field 'query', 'starttime' %>
+  <%= label_tag 'endtime' %>
+  <%= datetime_local_field 'query', 'endtime' %>
+  <%= submit_tag 'Filter' %>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Starttime</th>
+      <th>Endtime</th>
+      <th>Men</th>
+      <th>Location</th>
+      <th>UID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.name %></td>
+        <td><%= activity.description %></td>
+        <td><%= activity.starttime %></td>
+        <td><%= activity.endtime %></td>
+        <td><%= activity.men %></td>
+        <td><%= activity.location %></td>
+        <td><%= activity.user_id %></td>
+        <td><%= link_to 'Show', activity %></td>
+        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Activity', new_activity_path %>
