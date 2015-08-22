@@ -2,15 +2,23 @@
 
 <h1>Listing Activities</h1>
 
-<form method="get" accept-charset="UTF-8">
-  <%= label_tag 'starttime' %>
-  <%= datetime_local_field 'query', 'starttime' %>
-  <%= label_tag 'endtime' %>
-  <%= datetime_local_field 'query', 'endtime' %>
-  <%= submit_tag 'Filter' %>
-</form>
+<div  class="ui form">
+  <form method="get" accept-charset="UTF-8", class="three inline fields">
+    <div class="five wide field">
+      <%= label_tag 'starttime' %>
+      <%= datetime_local_field 'query', 'starttime' %>
+    </div>
+    <div class="five wide field">
+      <%= label_tag 'endtime' %>
+      <%= datetime_local_field 'query', 'endtime' %>
+    </div>
+    <div class="three wide field">
+      <%= submit_tag 'Filter' , :class => 'ui teal button' %>
+    </div>
+  </form>
+</div>
 
-<table>
+<table class="ui celled table">
   <thead>
     <tr>
       <th>Name</th>
@@ -29,8 +37,8 @@
       <tr>
         <td><%= activity.name %></td>
         <td><%= activity.description %></td>
-        <td><%= activity.starttime %></td>
-        <td><%= activity.endtime %></td>
+        <td><%= activity.starttime.to_s(:yee) %></td>
+        <td><%= activity.endtime.to_s(:yee) %></td>
         <td><%= activity.men %></td>
         <td><%= activity.location %></td>
         <td><%= activity.user_id %></td>
@@ -44,4 +52,4 @@
 
 <br>
 
-<%= link_to 'New Activity', new_activity_path %>
+<%= link_to 'New Activity', new_activity_path , :class => 'ui pink button' %>

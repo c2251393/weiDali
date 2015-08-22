@@ -2,22 +2,30 @@
 <html>
 <head>
   <title>Weidali</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+    <style>
+      body{
+        margin:15px 10px 20px 25px;
+      }
+    </style>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= link_to 'home', root_path %> | 
-<%= link_to 'activities', activities_path %> | 
+<div class="ui visible top sidebar inverted menu">
+<%= link_to 'home', root_path, :class => 'item' %>
+<%= link_to 'activities', activities_path, :class => 'item'%>
 <% if user_signed_in? %>
-<%= link_to 'logout', sign_out_path %> |
+<%= link_to 'logout', sign_out_path, :class => 'item' %>
 <% else %>
-<%= link_to 'login', sign_in_path %> |
+<%= link_to 'login', sign_in_path, :class => 'item' %>
 <% end %>
+</div>
 
-
+<div class="pusher">
 <%= yield %>
-
+</div>
 </body>
 </html>

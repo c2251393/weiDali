@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  #add_breadcrumb :index, :activities_path
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -10,11 +11,15 @@ class ActivitiesController < ApplicationController
     else
       @activities = Activity.all
     end
+    #add_breadcrumb @activities, activities_path(@activities)
   end
 
   # GET /activities/1
   # GET /activities/1.json
   def show
+    #@activity = Activity.find params[:id]
+    #add_breadcrumb @activity.name, activity_path(@activity)
+    # add_breadcrumb :show, example_path(@example)
   end
 
   # GET /activities/new
